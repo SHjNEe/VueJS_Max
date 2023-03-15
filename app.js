@@ -1,30 +1,26 @@
 const app = Vue.createApp({
   data() {
     return {
-      boxASelected: false,
-      boxBSelected: false,
-      boxCSelected: false,
-      boxDSelected: false,
+      styleInput: "",
+      styleClass: "",
+      message: "",
+      isHidden: false,
     };
   },
-  computed: {
-    boxCClasses() {
-      return { color_red: this.boxCSelected };
-    },
-  },
   methods: {
-    boxSelected(box) {
-      if (box === "A") {
-        this.boxASelected = !this.boxASelected;
-      } else if (box === "B") {
-        this.boxBSelected = !this.boxBSelected;
-      } else if (box === "C") {
-        this.boxCSelected = !this.boxCSelected;
-      } else if (box === "D") {
-        this.boxDSelected = !this.boxDSelected;
+    setClass() {
+      if (this.styleInput === "user1" || this.styleInput === "user2") {
+        this.styleClass = this.styleInput;
+        this.message = "";
+      } else {
+        this.styleInput = "";
+        this.message = "Wrong input !!";
       }
+    },
+    showEl() {
+      this.isHidden = !this.isHidden;
     },
   },
 });
 
-app.mount("#styling");
+app.mount("#assignment");
