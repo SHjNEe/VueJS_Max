@@ -19,7 +19,7 @@
     <section id="styling">
       <div
         class="demo"
-        :class="boxASelected ? 'color-red' : '' "
+        :class="boxASelected ? 'color_red' : '' "
         @click="boxSelected('A')"
         :style="{borderColor: boxASelected ? 'red' : 'blue'}"
       ></div>
@@ -31,9 +31,14 @@
       ></div>
       <div
         class="demo"
-        :class="{color_red: boxBSelected}"
+        :class="boxCClasses"
         @click="boxSelected('C')"
         :style="{borderColor: boxCSelected ? 'red' : 'blue'}"
+      ></div>
+      <div
+        :class="['demo', {color_red: boxDSelected}]"
+        @click="boxSelected('D')"
+        :style="{borderColor: boxDSelected ? 'red' : 'blue'}"
       ></div>
     </section>
   </body>

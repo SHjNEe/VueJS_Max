@@ -4,7 +4,13 @@ const app = Vue.createApp({
       boxASelected: false,
       boxBSelected: false,
       boxCSelected: false,
+      boxDSelected: false,
     };
+  },
+  computed: {
+    boxCClasses() {
+      return { color_red: this.boxCSelected };
+    },
   },
   methods: {
     boxSelected(box) {
@@ -14,6 +20,8 @@ const app = Vue.createApp({
         this.boxBSelected = !this.boxBSelected;
       } else if (box === "C") {
         this.boxCSelected = !this.boxCSelected;
+      } else if (box === "D") {
+        this.boxDSelected = !this.boxDSelected;
       }
     },
   },
