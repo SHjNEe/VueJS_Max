@@ -1,26 +1,25 @@
+function getRandomValue(max, min) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 const app = Vue.createApp({
   data() {
     return {
-      styleInput: "",
-      styleClass: "",
-      message: "",
-      isHidden: false,
+      playerHealth: 100,
+      monsterHealth: 100,
     };
   },
   methods: {
-    setClass() {
-      if (this.styleInput === "user1" || this.styleInput === "user2") {
-        this.styleClass = this.styleInput;
-        this.message = "";
-      } else {
-        this.styleInput = "";
-        this.message = "Wrong input !!";
-      }
+    attackMonster() {
+      const attachValue = getRandomValue(12, 5);
+      this.monsterHealth = this.monsterHealth - attachValue;
+      this.attackPlayer();
     },
-    showEl() {
-      this.isHidden = !this.isHidden;
+    attackPlayer() {
+      const attachValue = getRandomValue(15, 8);
+      this.playerHealth = this.playerHealth - attachValue;
+      this.attackMonster();
     },
   },
 });
-
-app.mount("#assignment");
+app.mount("#game");
