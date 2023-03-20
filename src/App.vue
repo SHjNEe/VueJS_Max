@@ -4,8 +4,8 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact name="Trung" isFavorite="1"></friend-contact>
+      <friend-contact name="Trang" isFavorite="0"></friend-contact>
     </ul>
   </section>
 </template>
