@@ -1,17 +1,17 @@
 <template>
   <li>
-    <h2>{{ name }}</h2>
+    <h2 @click="sayHello">{{ name }}</h2>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
-        {{ friend.phone }}
+        {{ phone }}
       </li>
       <li>
         <strong>Email:</strong>
-        {{ friend.email }}
+        {{ email }}
       </li>
     </ul>
   </li>
@@ -20,6 +20,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -30,29 +34,27 @@ export default {
     },
     email: String,
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
-      default: "0",
+      default: true,
       validator: function (value) {
-        return value === "1" || value === "0";
+        return value === true || value === false;
       },
     },
   },
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "0123 45678 90",
-        email: "manuel@localhost.com",
-      },
       friendIsFavorited: false,
     };
   },
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
+      this.$emit("setUser", this.id);
+    },
+    sayHello() {
+      this.$emit("setUser", this.id);
     },
   },
 };

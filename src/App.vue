@@ -4,8 +4,22 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact name="Trung" isFavorite="1"></friend-contact>
-      <friend-contact name="Trang" isFavorite="0"></friend-contact>
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :isFavorite="friend.isFavorite"
+        :phone="friend.phone"
+        :email="friend.email"
+        :id="friend.id"
+        @setUser="sayHello"
+      ></friend-contact>
+      <!-- <friend-contact
+        name="Trang"
+        isFavorite="0"
+        phone="0988-778-666"
+        email="julie@localhost.com"
+      ></friend-contact> -->
     </ul>
   </section>
 </template>
@@ -20,15 +34,23 @@ export default {
           name: "Manuel Lorenz",
           phone: "0123 45678 90",
           email: "manuel@localhost.com",
+          isFavorite: true,
         },
         {
           id: "julie",
           name: "Julie Jones",
           phone: "0987 654421 21",
           email: "julie@localhost.com",
+          isFavorite: false,
         },
       ],
     };
+  },
+  methods: {
+    sayHello(friendId) {
+      const toggledF = this.friends.find((item) => item.id === friendId);
+      console.log(toggledF);
+    },
   },
 };
 </script>
