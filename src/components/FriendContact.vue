@@ -42,6 +42,18 @@ export default {
       },
     },
   },
+  emits: ["setUser"],
+  //Validation
+  emits: {
+    "set-user": function (id) {
+      if (typeof id === "string") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
   data() {
     return {
       detailsAreVisible: false,
@@ -51,10 +63,10 @@ export default {
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
-      this.$emit("setUser", this.id);
+      // this.$emit("set-user", this.id);
     },
     sayHello() {
-      this.$emit("setUser", this.id);
+      this.$emit("set-user", this.id);
     },
   },
 };

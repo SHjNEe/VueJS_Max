@@ -3,6 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
+    <new-friend-form @add-contact="addNewComtact"></new-friend-form>
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -12,7 +13,7 @@
         :phone="friend.phone"
         :email="friend.email"
         :id="friend.id"
-        @setUser="sayHello"
+        @set-user="sayHello"
       ></friend-contact>
       <!-- <friend-contact
         name="Trang"
@@ -51,6 +52,9 @@ export default {
       const toggledF = this.friends.find((item) => item.id === friendId);
       console.log(toggledF);
     },
+    addNewComtact(newContact) {
+      this.friends.push(newContact);
+    },
   },
 };
 </script>
@@ -81,7 +85,8 @@ header {
   padding: 0;
   list-style: none;
 }
-#app li {
+#app li,
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
@@ -110,5 +115,12 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+#app form div {
+  margin-top: 10px;
+}
+#app form div input {
+  margin-left: 10px;
 }
 </style>
