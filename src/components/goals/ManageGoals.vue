@@ -4,11 +4,13 @@
     <input type="text" ref="goal" />
     <span v-if="goalErrorMessage">{{ goalErrorMessage }}</span>
     <button @click="setGoal">Set Goals</button>
-    <error-alert v-if="inputIsValid">
-      <h2>Input is invalid!</h2>
-      <p>Please enter at least a few characters!</p>
-      <button @click="confirmError">Close</button>
-    </error-alert>
+    <teleport to="body">
+      <error-alert v-if="inputIsValid">
+        <h2>Input is invalid!</h2>
+        <p>Please enter at least a few characters!</p>
+        <button @click="confirmError">Close</button>
+      </error-alert>
+    </teleport>
   </div>
 </template>
 <script>
