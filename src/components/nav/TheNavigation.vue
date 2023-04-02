@@ -3,16 +3,38 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/teams">Teams</router-link>
+          <router-link :to="teamMembersLink">Teams</router-link>
         </li>
         <li>
-          <router-link to="/users">Users</router-link>
+          <router-link :to="userMemberLink">Users</router-link>
         </li>
       </ul>
     </nav>
   </header>
 </template>
-
+<script>
+export default {
+  props: ["id", "name", "memberCount"],
+  computed: {
+    teamMembersLink() {
+      // return '/teams/' + this.id;
+      return {
+        name: "teams",
+        // params: { teamId: this.id },
+        // query: { sort: "asc" },
+      };
+    },
+    userMemberLink() {
+      // return '/teams/' + this.id;
+      return {
+        name: "users",
+        // params: { teamId: this.id },
+        // query: { sort: "asc" },
+      };
+    },
+  },
+};
+</script>
 <style scoped>
 header {
   width: 100%;

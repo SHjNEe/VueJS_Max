@@ -53,6 +53,19 @@ export default {
       this.loadTeamMembers(newTeamId);
     },
   },
+  // beforeRouteEnter(to, from, next) {
+  //   const boo = true;
+  //   if (boo) {
+  //     next();
+  //   } else {
+  //     next({ name: "teams" });
+  //   }
+  // },
+
+  // beforeRouteUpdate(to, from, next) {
+  //   this.loadTeamMembers(to.params.teamId);
+  //   next();
+  // },
 };
 </script>
 
