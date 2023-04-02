@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="confirmInput">Confirm</button>
+    <!-- <button @click="confirmInput">Confirm</button> -->
     <ul>
       <user-item
         v-for="user in users"

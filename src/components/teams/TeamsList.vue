@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import TeamsItem from './TeamsItem.vue';
+import TeamsItem from "./TeamsItem.vue";
 
 export default {
   components: {
     TeamsItem,
   },
-  inject: ['teams'],
+  inject: ["teams"],
 };
 </script>
 
